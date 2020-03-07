@@ -6,38 +6,82 @@
   justify-content: center;
   align-items: center;
   border: 2px solid red;
+  background-color: gray;
 
   .forecastList {
     justify-content: center;
     align-items: center;
     border: 2px solid salmon;
+    border-radius: 15px;
     padding: 0;
     list-style: none;
     display: flex;
     width: 95%;
+    height: 80%;
     flex-wrap: wrap;
     margin: 0;
 
     .forecastListItem {
-      width: 12%;
+      width: 13%;
       border: 1px solid lime;
-      margin: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: relative;
 
-      h3 {
-        top: 10%;
-        position: absolute;
-      }
 
-      p {
-        top: 50%;
-        position: absolute;
-      }
 
       img {
         width: 90%;
       }
     }
   }
-  git config --global user.email "you@example.com"
+}
+
+@media screen and  (max-width: 800px) {
+  .Weather {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+    background-color: gray;
+
+    .forecastList {
+      justify-content: center;
+      align-items: center;
+      border: 2px solid salmon;
+      border-radius: 15px;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      width: 95%;
+      height: 80%;
+      flex-wrap: wrap;
+      margin: 0;
+      overflow-y: scroll;
+
+      .forecastListItem {
+        width: 100%;
+        border: 1px solid lime;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+        p {
+          justify-self: flex-end;
+        }
+
+        img {
+          height: 80%;
+          width: auto;
+        }
+      }
+    }
+  }
 }

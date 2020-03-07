@@ -2,13 +2,13 @@ import React from "react";
 import "./Map.scss";
 import GoogleMapReact from "google-map-react";
 
-const Map = () => {
+const Map = ({ handleMapChange }) => {
   const props = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 45.3736,
+      lng: -121.6960
     },
-    zoom: 20
+    zoom: 10
   };
 
   return (
@@ -16,8 +16,11 @@ const Map = () => {
       <GoogleMapReact
         defaultCenter={props.center}
         defaultZoom={props.zoom}
-      ></GoogleMapReact>
-    </section>
+        onChange={({ center }) => handleMapChange(center.lat.toFixed(4), center.lng.toFixed(4))}
+      >
+        <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" />
+      </GoogleMapReact>
+    </section >
   );
 };
 

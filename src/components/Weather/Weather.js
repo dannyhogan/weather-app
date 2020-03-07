@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from "react";
 import "./Weather.scss";
 import { getWeatherData } from "../../services/weatherApi";
+import { BeatLoader } from 'react-spinners';
 
-const Weather = () => {
+const Weather = ({ coordinates, toggleModal, setModalItem }) => {
+
   const [forecast, setForecast] = useState([]);
+  const [error, setError] = useState(null);
 
-  console.log(forecast);
   useEffect(() => {
-    getWeatherData(45.4543, -121.9331).then(setForecast);
-  }, []);
+    setError(null)
+    getWeatherData(coordinates.lat, coordinates.lng)
+      .then(res => {
+        setForecast(res);
+      })
+      .catch(err => {
+        setError(err)
+      });
+  }, [coordinates]);
 
   const forcastItems = forecast.map((day, i) => {
     return (
-      <li key={i} className="forecastListItem">
+      <li key={i} className="forecastListItem" onClick={() => {
+        setModalItem(day)
+        toggleModal(open => !open);
+      }}>
+        <img src={day.icon} alt="Weather Icon" />
         <h3>{day.name}</h3>
         <p>{day.temperature}</p>
-        <img src={day.icon}></img>
       </li>
     );
   });
 
   return (
     <section className="Weather">
-      <ul className="forecastList">{forcastItems}</ul>
+      <ul className="forecastList">
+        {error ? <h2>{error}</h2> : forcastItems}
+      </ul>
     </section>
   );
 };
