@@ -13,6 +13,7 @@ export const getWeatherData = (lat, long) => {
       return fetch(weather.properties.forecast)
         .then(res => res.json())
         .then(forecast => {
+          console.log(forecast)
           return forecast.properties.periods;
         });
     })

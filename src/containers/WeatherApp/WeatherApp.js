@@ -3,6 +3,7 @@ import './WeatherApp.scss';
 import Weather from "../../components/Weather/Weather";
 import Map from "../../components/Map/Map";
 import Modal from '../../components/Modal/Modal';
+import Header from '../../components/Header/Header';
 
 const WeatherApp = () => {
 
@@ -16,6 +17,7 @@ const WeatherApp = () => {
 
   return (
     <section className="WeatherApp" >
+      <Header />
       <Modal isOpen={isOpen} modalItem={modalItem} toggleModal={toggleModal} />
       <Map handleMapChange={handleChange} />
       <Weather coordinates={coordinates} toggleModal={toggleModal} setModalItem={setModalItem} />

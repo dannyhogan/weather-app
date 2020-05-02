@@ -34,6 +34,7 @@ const Weather = ({ coordinates, toggleModal, setModalItem }) => {
 
   return (
     <section className="Weather">
+      <h2>Weekly Forecast</h2>
       <ul className="forecastList">
         {error ? <h2>{error}</h2> : forcastItems}
       </ul>

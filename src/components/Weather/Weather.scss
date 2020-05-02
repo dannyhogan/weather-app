@@ -8,11 +8,14 @@
   border: 2px solid red;
   background-color: gray;
 
+  h1, h2 {
+    color: white;
+    text-shadow: 0px 0px 2.5px black;
+  }
+
   .forecastList {
     justify-content: center;
     align-items: center;
-    border: 2px solid salmon;
-    border-radius: 15px;
     padding: 0;
     list-style: none;
     display: flex;
@@ -20,19 +23,18 @@
     height: 80%;
     flex-wrap: wrap;
     margin: 0;
+    overflow: hidden;
 
     .forecastListItem {
       width: 13%;
-      border: 1px solid lime;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: relative;
-
-
-
+      
       img {
+        border-radius: 15px;
         width: 90%;
       }
     }
@@ -47,14 +49,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
-    background-color: gray;
+    background-color: rgb(156, 156, 156);
 
     .forecastList {
       justify-content: center;
       align-items: center;
-      border: 2px solid salmon;
-      border-radius: 15px;
       padding: 0;
       list-style: none;
       display: flex;
@@ -63,18 +62,28 @@
       flex-wrap: wrap;
       margin: 0;
       overflow-y: scroll;
+      border-radius: 20px;
+      background-color: rgb(39, 39, 39);
 
       .forecastListItem {
-        width: 100%;
-        border: 1px solid lime;
+        width: 90%;
+        border: 1px solid white;
+        border-radius: 15px;
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         position: relative;
+        margin: .5rem 0;
+        background-color: rgba(233, 233, 233, 0.5);
+
+        &:nth-child(odd) {
+          background-color: rgba(207, 207, 207, 0.25);
+          color: white;
+        }
 
         p {
-          justify-self: flex-end;
+          margin: 1rem;
         }
 
         img {
