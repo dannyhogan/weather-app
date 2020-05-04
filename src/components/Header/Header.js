@@ -7,7 +7,7 @@ const Header = () => {
     <header className="Header">
       <img src={logo} />
       <div>
-        <h1>GeoWeather</h1>
+        <h1>WeatherMap</h1>
         <h2>Select a location on the map to view a weekly weather forecast!</h2>
       </div>
     </header>
